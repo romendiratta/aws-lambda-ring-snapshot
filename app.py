@@ -15,7 +15,6 @@ def token_updated(token):
 
 def lambda_handler(event, context):
     token = json.loads(token_obj.get()['Body'].read())
-    auth = Auth("user_auth", token, token_updated)        
     
     headers = {'user-agent': 'android:com.ringapp:2.0.67(423)', "Authorization": "Bearer %s" %token["access_token"]}
     
